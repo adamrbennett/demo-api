@@ -7,7 +7,7 @@ export function configureExpress(app: Express) {
   app.use(bodyParser.json())
 
   // health check and status endpoint
-  app.use(['/health', '/status'], statusHandler)
+  app.use('/status', statusHandler)
 
   // static assets
   app.use('/spec', express.static('spec'))

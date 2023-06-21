@@ -1,7 +1,7 @@
 {{- if .Values.ingress.enabled }}
 Access the application with any of the following urls:
 {{- range $host := .Values.ingress.hosts }}
-  https://{{ $host }}/health
+  https://{{ $host }}/status
   https://{{ $host }}/api/echo
   https://{{ $host }}/api/status/<status code>
 {{- else }}
