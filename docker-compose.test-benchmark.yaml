@@ -1,0 +1,15 @@
+version: "2.2"
+
+services:
+  api:
+    image: ${IMAGE:-demo-api}
+    build:
+      context: .
+
+  benchmark-test-runner:
+    image: testutils/wrk
+    entrypoint: wait-for api:3000 -- wrk -t1 -c1000 -d30s -R1000 http://api:3000/api/echo
+    environment:
+      - SOCKET_API=api:3000
+    depends_on:
+      - api

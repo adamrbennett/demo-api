@@ -1,0 +1,155 @@
+/echo:
+  get:
+    summary: Echoes a GET request
+    description: Returns request headers and query parameters
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+  put:
+    summary: Echoes a PUT request
+    description: Returns request headers, query parameters and body
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+  post:
+    summary: Echoes a POST request
+    description: Returns request headers, query parameters and body
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+  delete:
+    summary: Echoes a DELETE request
+    description: Returns request headers and query parameters
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+
+/echo/{id}:
+  get:
+    summary: Echoes a GET request with a path parameter
+    description: Returns request headers and query parameters
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+        x-example: "100"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+  put:
+    summary: Echoes a PUT request with a path parameter
+    description: Returns request headers, query parameters and body
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+        x-example: "100"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+  post:
+    summary: Echoes a POST request with a path parameter
+    description: Returns request headers, query parameters and body
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+        x-example: "100"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml
+  delete:
+    summary: Echoes a DELETE request with a path parameter
+    description: Returns request headers and query parameters
+    tags:
+      - Echo
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+        x-example: "100"
+    responses:
+      200:
+        description: Request echoed back to caller
+        headers:
+          content-type:
+            type: "string"
+            x-example: "application/json; charset=utf-8"
+        schema:
+          $ref: ../models/echo.yaml

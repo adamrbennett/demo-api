@@ -1,0 +1,11 @@
+{
+  "name": "default",
+  "log": {
+    "level": "info",
+    "logRequests": true
+  },
+  "security": {
+    "cors": { "origin": "*" },
+    "cleanHeaders": true
+  }
+}

@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  verification-test-runner:
+    image: testutils/newman
+    environment:
+      - API_URL=${API_URL}
+    user: root
+    working_dir: /opt/src
+    volumes:
+      - .:/opt/src
+    entrypoint: test/verification/start.sh
+    command: >
+      run "/opt/src/test/verification/collection.json"
+      --environment="env.json"
+      --reporters="cli,html,json,junit"
+      --reporter-junit-export test/results/verification-test-results.xml
+      --reporter-html-export test/results/verification-test-results.html
+      --reporter-json-export test/results/verification-test-results.json

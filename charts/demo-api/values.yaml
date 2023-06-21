@@ -1,0 +1,41 @@
+imageRepository: demo-api
+imagePullPolicy: IfNotPresent
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+containerPort: 3000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+livenessProbe:
+  initialDelaySeconds: 3
+  periodSeconds: 3
+
+readinessProbe:
+  initialDelaySeconds: 0
+  periodSeconds: 3
+
+autoscale:
+  minAvailable: 1
+  minReplicas: 2
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

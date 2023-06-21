@@ -1,0 +1,582 @@
+{
+  "info": {
+    "name": "TypeScript API",
+    "_postman_id": "840146a5-48c6-4085-b4cf-e74ea892834b",
+    "description": "A template for TypeScript APIs.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "echo",
+      "description": "Folder for echo",
+      "item": [
+        {
+          "name": "Echoes a GET request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d943a185-bed4-4908-b104-188e021b14bf",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^GET: \\//);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers and query parameters"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a PUT request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "af289ded-a9bd-4888-99f8-5caa5d639d9c",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^PUT: \\//);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return the request body\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('body').and.to.have.property('one').and.to.eql(1);",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"one\": 1\n}"
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers, query parameters and body"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a POST request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a9efaf84-5b02-4cea-9c53-ab6c6ebdc19f",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^POST: \\//);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return the request body\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('body').and.to.have.property('one').and.to.eql(1);",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"one\": 1\n}"
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers, query parameters and body"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a DELETE request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e1584d60-d9d5-4011-ac23-d0e12298841a",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^DELETE: \\//);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers and query parameters"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a GET request with a path parameter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c8c81233-3130-42dd-a5b5-9b495cee7183",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^GET: \\/1/);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo/1?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo", "1"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers and query parameters"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a PUT request with a path parameter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e79e9730-9a57-467d-a1ff-ab1f45758090",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^PUT: \\/1/);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return the request body\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('body').and.to.have.property('one').and.to.eql(1);",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"one\": 1\n}"
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo/1?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo", "1"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers, query parameters and body"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a POST request with a path parameter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6da41396-4ee0-4725-9566-54a8d3e879e9",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^POST: \\/1/);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return the request body\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('body').and.to.have.property('one').and.to.eql(1);",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"one\": 1\n}"
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo/1?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo", "1"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers, query parameters and body"
+          },
+          "response": []
+        },
+        {
+          "name": "Echoes a DELETE request with a path parameter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3c2f805d-7db5-4c19-a8e3-82adb19f0079",
+                "type": "text/javascript",
+                "exec": [
+                  "var chai = require('chai'),",
+                  "    expect = chai.expect;",
+                  "",
+                  "pm.test(\"It should return HTTP status 200 Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"It should return what was called\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('called').and.match(/^DELETE: \\/1/);",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request headers\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('headers');",
+                  "});",
+                  "",
+                  "pm.test(\"It should return request query parameters\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('query').and.to.have.property('one').and.to.eql('1');",
+                  "});",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{SERVICE_URL}}/api/echo/1?one=1",
+              "host": ["{{SERVICE_URL}}"],
+              "path": ["api", "echo", "1"],
+              "query": [
+                {
+                  "key": "one",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Returns request headers and query parameters"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "79609feb-70b5-45e5-ae85-a83a0c7d60b5",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "82687dc6-c969-4f17-98ac-6ebfbd13818c",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+swagger: "2.0"
+info:
+  title: "TypeScript API"
+  version: "1.0.0"
+  description: A template for TypeScript APIs.
+basePath: /api
+produces:
+  - application/json
+
+tags:
+  - name: Echo
+    description: Used for echoing requests back to the caller
+
+paths:
+  $ref: paths/echo.yaml

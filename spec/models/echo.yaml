@@ -1,0 +1,18 @@
+type: object
+required:
+  - called
+  - headers
+  - query
+properties:
+  called:
+    description: The method and path that was called
+    type: string
+  headers:
+    description: The headers sent on the request
+    type: object
+  query:
+    description: The query parameters sent by the caller
+    type: object
+  body:
+    description: The body sent by the caller
+    type: object

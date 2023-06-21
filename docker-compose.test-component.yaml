@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  api:
+    image: ${IMAGE:-demo-api}
+    build:
+      context: .
+
+  component-test-runner:
+    image: testutils/newman
+    environment:
+      - SOCKET_API=api:3000
+    user: root
+    working_dir: /opt/src
+    volumes:
+      - .:/opt/src
+    entrypoint: test/component/start.sh
+    command: >
+      run "/opt/src/test/component/collection.json"
+      --environment="/opt/src/test/component/env.json"
+      --reporters="cli,html,json,junit"
+      --reporter-junit-export test/results/component-test-results.xml
+      --reporter-html-export test/results/component-test-results.html
+      --reporter-json-export test/results/component-test-results.json
+    depends_on:
+      - api

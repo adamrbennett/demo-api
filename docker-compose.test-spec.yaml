@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  api:
+    image: ${IMAGE:-demo-api}
+    build:
+      context: .
+
+  spec-test-runner:
+    image: testutils/dredd
+    environment:
+      - SOCKET_API=api:3000
+    user: root
+    working_dir: /opt/src
+    volumes:
+      - .:/opt/src
+    entrypoint: test/spec/start.sh spec/api-compiled.yaml http://api:3000
+    depends_on:
+      - api

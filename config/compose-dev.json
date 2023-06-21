@@ -1,0 +1,7 @@
+{
+  "name": "compose-dev",
+  "log": {
+    "level": "debug",
+    "format": "dev"
+  }
+}

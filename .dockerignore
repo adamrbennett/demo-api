@@ -1,0 +1,16 @@
+.dockerignore
+.git
+.gitignore
+.nyc_output
+.terraform
+coverage
+dist
+Dockerfile
+docker-compose*
+etc
+Jenkinsfile
+node_modules
+nodemon.json
+*test-results.xml
+*.tf
+*.out

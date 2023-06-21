@@ -1,0 +1,16 @@
+node_modules
+.terraform
+*test-results.*
+coverage
+.nyc_output
+plan.out
+terraform.tfstate*
+*.log
+test/component/reports
+test/verification/reports
+dist/**/*
+spec/api-compiled.yaml
+.DS_Store
+.scannerwork
+dependency-check*.html
+*.out
