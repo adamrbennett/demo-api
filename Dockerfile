@@ -54,8 +54,5 @@ ENV COMMIT_HASH ${COMMIT_HASH}
 # export port 3000
 EXPOSE 3000
 
-# set the runtime user
-USER node
-
 # start the app when the container runs
 ENTRYPOINT ["npm", "start"]
